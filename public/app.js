@@ -65,6 +65,11 @@ function updateValues() {
 // Measurements
 ///////////////////////////////////////////
 
+function raw(items, elem) {
+  console.log(items)
+  setText(elem, items)
+}
+
 function sum(items, elem) {
   var value = items.length;
   setText(elem, value);
