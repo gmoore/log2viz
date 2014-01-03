@@ -181,7 +181,7 @@ class App < Sinatra::Base
 
 
             data = Hash[ key_value_pairs ]
-            logger.info "#{data['dyno']}: #{data['path']} #{data['service']}" unless data['path'].nil?
+            # logger.info "#{data['dyno']}: #{data['path']} #{data['service']}" unless data['path'].nil?
             parsed_line = {}
 
             if ps == "router"
@@ -189,7 +189,7 @@ class App < Sinatra::Base
                 "requests"        => 1,
                 "response_time"   => data["service"].to_i,
                 "status"          => "#{data["status"][0]}xx",
-                "path"            => data['path']
+                "request"         => [data['dyno'], data['path'], data['service']]
               }
               parsed_line["error"] = data["code"] if data["code"]
             elsif ps == "web" && data.key?("sample#memory_total")
