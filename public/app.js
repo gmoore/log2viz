@@ -150,7 +150,6 @@ function setTable(elem, value) {
   }
   html += '</table>';
 
-  console.log(value)
   $(html).appendTo($(".data", elem));
 }
 
